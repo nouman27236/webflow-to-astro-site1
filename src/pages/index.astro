@@ -235,21 +235,23 @@ const blogPosts = [
           >
             <img src="/images/hero-badge.avif" alt="Accepting New Patients" class="w-full h-auto" />
           </a>
+        </div>
+      </div>
 
-          <div class="mt-6 flex flex-wrap gap-4">
-            <a
-              href="/book-an-appointment"
-              class="font-heading font-semibold text-white bg-brand border-2 border-brand rounded-full px-7 py-3.5 hover:bg-brand-dark transition-colors"
-            >
-              Request an Appointment
-            </a>
-            <a
-              href="tel:+15852443337"
-              class="font-heading font-semibold text-brand border-2 border-brand rounded-full px-7 py-3.5 hover:bg-brand hover:text-white transition-colors"
-            >
-              Call Us (585) 244-3337
-            </a>
-          </div>
+      <div class="relative mx-auto max-w-[96rem] px-6 lg:px-[72px] lg:pl-[calc(72px+26rem+2.5rem)] pb-14 lg:pb-20 -mt-6 lg:-mt-10">
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/book-an-appointment"
+            class="font-heading font-semibold text-white bg-brand border-2 border-brand rounded-full px-7 py-3.5 hover:bg-brand-dark transition-colors"
+          >
+            Request an Appointment
+          </a>
+          <a
+            href="tel:+15852443337"
+            class="font-heading font-semibold text-brand border-2 border-brand rounded-full px-7 py-3.5 hover:bg-brand hover:text-white transition-colors"
+          >
+            Call Us (585) 244-3337
+          </a>
         </div>
       </div>
     </section>
@@ -312,11 +314,12 @@ const blogPosts = [
       <BgBubble size="10rem" bottom="0" left="5%" from="#ffffff" to="#f2f8f8" opacity={0.6} />
       <BgBubble size="20rem" top="20%" right="-6rem" from="#fff" to="#d7eaea" opacity={0.2} />
       <div class="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="rounded-3xl overflow-hidden shadow-lg order-2 lg:order-1">
+        <div class="relative max-w-[26rem] order-2 lg:order-1">
+          <div class="absolute inset-0 translate-x-6 translate-y-6 aspect-[469/607] rounded-t-[18.75rem] rounded-b-2xl border border-[#b8d8d8]"></div>
           <img
             src="/images/holistic-approach.webp"
             alt="Holistic dental treatment"
-            class="w-full h-full object-cover"
+            class="relative w-full aspect-[460/595] object-cover border-4 border-white rounded-t-[62rem] rounded-b-xl shadow-lg"
             loading="lazy"
           />
         </div>
@@ -362,13 +365,16 @@ const blogPosts = [
         </div>
         <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {doctors.map((d) => (
-            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
-              <img src={d.img} alt={d.name} class="w-full h-64 object-cover" loading="lazy" />
-              <div class="p-6">
-                <h3 class="font-heading text-lg font-semibold text-ink">{d.name}</h3>
-                <p class="text-sm font-medium text-brand mt-1">{d.role}</p>
-                <p class="mt-3 text-sm text-slate-600 leading-relaxed">{d.bio}</p>
-              </div>
+            <div class="text-center">
+              <img
+                src={d.img}
+                alt={d.name}
+                class="w-full max-w-[18rem] mx-auto aspect-[268/363] object-cover border-[0.75rem] border-white rounded-t-[15rem] rounded-b-2xl shadow-[0.5rem_-0.5rem_0_2px_#6aacac,0_16px_16px_-4px_rgba(0,0,0,0.2),0_4px_6px_-0.25rem_rgba(0,0,0,0.1)]"
+                loading="lazy"
+              />
+              <h3 class="mt-6 font-heading text-lg font-semibold text-ink">{d.name}</h3>
+              <p class="text-sm font-medium text-brand mt-1">{d.role}</p>
+              <p class="mt-3 text-sm text-slate-600 leading-relaxed max-w-xs mx-auto">{d.bio}</p>
             </div>
           ))}
         </div>
@@ -577,28 +583,37 @@ const blogPosts = [
         </div>
         <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogPosts.map((post) => (
-            <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] overflow-hidden">
+            <a href="/blog" class="block bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] overflow-hidden">
               <div class="relative">
                 <img src={post.img} alt={post.title} class="w-full h-44 object-cover" loading="lazy" />
-                <div class="absolute bottom-0 left-0 right-0 translate-y-1/2 px-4 flex flex-wrap gap-1.5">
-                  {post.tags.map((t, i) => (
-                    <span
-                      class={`text-[11px] font-medium px-2.5 py-1 rounded-full shadow-sm ${i === 0 ? 'bg-brand text-white' : 'bg-white text-ink'}`}
-                    >
+                <span class="absolute bottom-3 left-3 text-[11px] font-medium px-2.5 py-1 rounded-full shadow-sm bg-brand text-white">
+                  {post.tags[0]}
+                </span>
+              </div>
+              {post.tags.length > 1 && (
+                <div class="px-5 pt-4 flex flex-wrap gap-1.5">
+                  {post.tags.slice(1).map((t) => (
+                    <span class="text-[11px] font-medium px-2.5 py-1 rounded-full shadow-sm bg-white border border-slate-100 text-ink">
                       {t}
                     </span>
                   ))}
                 </div>
-              </div>
-              <div class="p-5 pt-8">
+              )}
+              <div class="p-5 pt-4">
                 <h3 class="font-heading text-lg font-semibold text-ink">{post.title}</h3>
                 <p class="mt-2 text-muted text-sm">{post.excerpt}</p>
-                <div class="mt-4 flex items-center gap-2">
-                  <img src={post.authorImg} alt={post.author} class="h-6 w-6 rounded-full object-cover" />
-                  <span class="text-xs font-medium text-ink">{post.author}</span>
+                <div class="mt-4 flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <img src={post.authorImg} alt={post.author} class="h-6 w-6 rounded-full object-cover" />
+                    <span class="text-xs font-medium text-ink">{post.author}</span>
+                  </div>
                 </div>
+                <span class="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand">
+                  Read More
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
               </div>
-            </div>
+            </a>
           ))}
         </div>
         <div class="mt-12 text-center">
@@ -614,75 +629,82 @@ const blogPosts = [
 
     <!-- Appointment / Contact form -->
     <section id="schedule" class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#f2f8f8">
-      <div class="relative mx-auto max-w-3xl px-6">
-        <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink text-center">
-          Schedule Your Visit Today
-        </h2>
-        <p class="mt-4 text-slate-600 text-center">
-          Experience dentistry designed around your health, comfort, and confidence. Call
-          <a href="tel:+15852443337" class="text-brand font-medium">(585) 244-3337</a> or schedule
-          online below to get started.
-        </p>
-
-        <form
-          name="appointment-request"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          class="mt-10 bg-white rounded-2xl border border-slate-100 shadow-sm p-8 grid sm:grid-cols-2 gap-5"
-        >
-          <input type="hidden" name="form-name" value="appointment-request" />
-          <p class="hidden">
-            <label>Don't fill this out: <input name="bot-field" /></label>
+      <div class="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink">Schedule Your Visit Today</h2>
+          <p class="mt-4 text-slate-600">
+            Experience dentistry designed around your health, comfort, and confidence. Call
+            <a href="tel:+15852443337" class="text-brand font-medium">(585) 244-3337</a> or schedule
+            online through our appointment page to get started.
           </p>
 
-          <div>
-            <label class="block text-sm font-medium text-ink mb-1" for="firstName">First Name</label>
-            <input id="firstName" name="firstName" type="text" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20" />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-ink mb-1" for="lastName">Last Name</label>
-            <input id="lastName" name="lastName" type="text" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20" />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-ink mb-1" for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20" />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-ink mb-1" for="email">Email</label>
-            <input id="email" name="email" type="email" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20" />
-          </div>
-          <div class="sm:col-span-2">
-            <label class="block text-sm font-medium text-ink mb-1" for="message">Message</label>
-            <textarea id="message" name="message" rows="4" class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"></textarea>
-          </div>
+          <form
+            name="appointment-request"
+            method="POST"
+            data-netlify="true"
+            data-netlify-recaptcha="true"
+            netlify-honeypot="bot-field"
+            class="mt-8 grid sm:grid-cols-2 gap-5"
+          >
+            <input type="hidden" name="form-name" value="appointment-request" />
+            <p class="hidden">
+              <label>Don't fill this out: <input name="bot-field" /></label>
+            </p>
 
-          <div class="sm:col-span-2 flex items-start gap-3">
-            <input id="sms" name="smsConsent" type="checkbox" class="mt-1" />
-            <label for="sms" class="text-xs text-slate-500 leading-relaxed">
-              By checking this box, you agree to receive SMS care related updates from
-              Contemporary Dentistry at the phone number provided. Message frequency may vary.
-              Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is
-              not a condition of purchase.
-            </label>
-          </div>
-          <div class="sm:col-span-2 flex items-start gap-3">
-            <input id="privacy" name="privacyConsent" type="checkbox" required class="mt-1" />
-            <label for="privacy" class="text-xs text-slate-500 leading-relaxed">
-              I have read and agree to the <a href="/privacy-policy" class="underline">Privacy Policy</a>
-              and <a href="/terms-of-service" class="underline">Terms Of Use</a> *
-            </label>
-          </div>
+            <div>
+              <label class="block text-sm font-medium text-ink mb-1" for="firstName">First Name</label>
+              <input id="firstName" name="firstName" type="text" placeholder="John" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-ink mb-1" for="lastName">Last Name</label>
+              <input id="lastName" name="lastName" type="text" placeholder="Ken" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-ink mb-1" for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="0011223344" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-ink mb-1" for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="contact@email.com" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-sm font-medium text-ink mb-1" for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Type your message..." required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"></textarea>
+            </div>
 
-          <div class="sm:col-span-2">
-            <button
-              type="submit"
-              class="w-full sm:w-auto font-heading font-semibold text-white bg-brand border-2 border-brand rounded-full px-8 py-3.5 hover:bg-brand-dark transition-colors"
-            >
-              Request an Appointment
-            </button>
-          </div>
-        </form>
+            <div class="sm:col-span-2 flex items-start gap-3">
+              <input id="sms" name="smsConsent" type="checkbox" class="mt-1" />
+              <label for="sms" class="text-xs text-slate-500 leading-relaxed">
+                By checking this box, you agree to receive SMS care related updates from
+                Contemporary Dentistry at the phone number provided. Message frequency may vary.
+                Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent
+                is not a condition of purchase.
+              </label>
+            </div>
+            <div class="sm:col-span-2 flex items-start gap-3">
+              <input id="privacy" name="privacyConsent" type="checkbox" required class="mt-1" />
+              <label for="privacy" class="text-xs text-slate-500 leading-relaxed">
+                I have read and agree to the <a href="/privacy-policy" class="underline">Privacy Policy</a>
+                and <a href="/terms-of-service" class="underline">Terms Of Use</a> *
+              </label>
+            </div>
+
+            <div data-netlify-recaptcha="true" class="sm:col-span-2"></div>
+
+            <div class="sm:col-span-2">
+              <button
+                type="submit"
+                class="w-full sm:w-auto font-heading font-semibold text-white bg-brand border-2 border-brand rounded-full px-8 py-3.5 hover:bg-brand-dark transition-colors"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="hidden lg:block">
+          <img src="/images/contact-image.png" alt="" class="w-full h-auto" loading="lazy" />
+        </div>
       </div>
     </section>
   </main>
