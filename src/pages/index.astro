@@ -1,0 +1,456 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    eyebrow: 'Nurture & Harmonize',
+    title: 'Holistic & Biologic Dentistry',
+    desc: 'Your oral and overall health interconnected',
+  },
+  {
+    eyebrow: 'Restore & Preserve',
+    title: 'General/Restorative Dentistry',
+    desc: 'Restore damaged teeth and improve strength',
+  },
+  {
+    eyebrow: 'Calm Down & Relax',
+    title: 'Sedation & Relaxation',
+    desc: 'For a more relaxed, comfortable experience',
+  },
+  {
+    eyebrow: 'Refine & Enhance',
+    title: 'Cosmetic Dentistry',
+    desc: 'Refine with veneers, bonding, whitening & more',
+  },
+  {
+    eyebrow: 'Straighten & Align',
+    title: 'Invisalign',
+    desc: 'Straighten your teeth fast and discreetly',
+  },
+  {
+    eyebrow: 'Rebuild & Rehabilitate',
+    title: 'Dental Implants',
+    desc: 'Permanent, lasting tooth replacements',
+  },
+];
+
+const holisticPoints = [
+  'Personalized treatment plans based on your overall health goals',
+  "Compatible biologic materials that support your body's natural balance",
+  'Proactive preventive care through dental cleanings and exams & checkups',
+  'Advanced salivary diagnostics supported by our technology',
+  'IAOMT S.M.A.R.T. certified techniques for safe amalgam removal and ventilation',
+  'Fluoride-free preventive care plans and recommendations',
+  'Ozone therapy and ozone-supported treatments',
+];
+
+const doctors = [
+  {
+    name: 'Dr. Anna Belous',
+    role: 'General & Holistic Dentistry',
+    bio: 'Dr. Belous has lived in Rochester, NY for nearly four decades since moving from Ukraine. A founding member of the practice, she is an expert general and holistic dental practitioner with decades of experience.',
+    img: '/images/dr-belous.avif',
+  },
+  {
+    name: 'Dr. Adriana Palacio',
+    role: 'General & Holistic Dentistry',
+    bio: 'Dr. Palacio is a native of Rochester, NY. Both a dentist and a master of science, she has accumulated impressive experience in general, holistic and integrated dentistry. She is a member of the practice.',
+    img: '/images/dr-palacio.avif',
+  },
+  {
+    name: 'Dr. Robert Calcagno',
+    role: 'General Dentistry',
+    bio: 'An associate at the practice, Dr. Calcagno is a born and raised Rochesterian who has been a dedicated, career-long general dentistry practitioner since 1978, serving generations of patients.',
+    img: '/images/dr-calcagno.webp',
+  },
+];
+
+const comprehensiveCare = [
+  'Preventive care and routine maintenance',
+  'Holistic and biologic dentistry with your systemic health in focus',
+  'Cosmetic dentistry through our smile enhancement services',
+  'Restorative solutions via tooth repair & restoration',
+  'Functional tooth replacement solutions with implants and dentures',
+  'Effective and time-efficient orthodontic treatments',
+  'Advanced treatments and therapies for issues like TMJ and sleep apnea',
+  'Urgent care through emergency dentistry',
+  'Versatile sedation solutions to keep you calm and comfortable',
+];
+
+const financialOptions = [
+  'Personalized, thoughtful treatment plans with gradual payments',
+  'Flexible CareCredit financing, at no or low interest, for those qualified',
+  'Most major dental insurances accepted',
+  'A variety of payment methods accepted',
+];
+
+const patientExperience = [
+  'A calm, spa-like environment',
+  'Clear communication and personalized guidance',
+  'Easy scheduling through our book an appointment page',
+  'Transparent financial options on our insurance & financing page',
+  'Helpful resources in our patient information section',
+];
+
+const faqs = [
+  {
+    q: 'What makes your dental practice different?',
+    a: "We understand that as an informed dental care consumer you have choices and the current web, social media and AI technologies make the information available to you instantly. That's why Dr. Anna Belous and Dr. Adriana Palacio focus on what is genuinely important. It starts with the core value principles they were raised with as individuals, which they have brought to their careers as Dentists – treat others the way you would like to be treated – with respect and dignity.",
+  },
+  {
+    q: 'Do you offer cosmetic and restorative treatments?',
+    a: 'Yes, we provide a full range of services, including cosmetic treatments like veneers, orthodontic treatments like Invisalign, and restorative treatments like crowns, bridges and implants. We are truly a well-rounded, comprehensive general dentistry practice.',
+  },
+  {
+    q: 'Are you accepting new patients?',
+    a: 'Yes! We welcome new patients and make it easy to get started with our new patient forms.',
+  },
+  {
+    q: 'Do you offer options for handling dental anxiety?',
+    a: 'Absolutely! We offer a whole slew of services, ranging from a spa-like, calm office atmosphere, to stress-reducing amenities like noise cancellation, music and warm blankets, to a comprehensive range of sedation options.',
+  },
+  {
+    q: 'Would I be able to afford dental care at your practice?',
+    a: "We focus on making dental care accessible for all — reducing costs, personalized treatment plans, flexible payment options, no- and low-interest financing, and accepting a wide range of insurances.",
+  },
+];
+---
+
+<Layout
+  title="Dentist Rochester NY | Contemporary Dentistry PLLC"
+  description="Visit Contemporary Dentistry PLLC in Rochester, NY for holistic, personalized dental care. Veneers, implants, Invisalign & more. New patients welcome."
+>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div class="mx-auto max-w-7xl px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="font-heading text-4xl lg:text-5xl font-medium text-ink leading-tight">
+            Personalized, Holistic Dental Care in Rochester, NY
+          </h1>
+          <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+            At Contemporary Dentistry, we provide a different kind of dental experience—one that
+            blends advanced clinical care with a holistic, wellness-focused philosophy. Our
+            Rochester, NY dental office is built around comfort, empathy, and genuine compassion,
+            ensuring every patient feels supported from their very first visit.
+          </p>
+          <p class="mt-4 text-lg text-slate-600 leading-relaxed">
+            Whether you're maintaining your oral health or seeking a complete smile
+            transformation, our team delivers dental care that is tailored, thoughtful, and
+            designed for lasting results.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href="/book-an-appointment"
+              class="font-heading font-semibold text-white bg-brand rounded-full px-7 py-3.5 hover:bg-brand-dark transition-colors"
+            >
+              Request an Appointment
+            </a>
+            <a
+              href="tel:+15852443337"
+              class="font-heading font-semibold text-ink border border-slate-300 rounded-full px-7 py-3.5 hover:border-brand hover:text-brand transition-colors"
+            >
+              Call Us (585) 244-3337
+            </a>
+          </div>
+        </div>
+        <div class="rounded-3xl overflow-hidden shadow-xl">
+          <img
+            src="/images/hero-office.webp"
+            alt="Contemporary Dentistry office in Rochester, NY"
+            class="w-full h-full object-cover"
+            width="1620"
+            height="1080"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Services -->
+    <section class="bg-slate-50 py-16 lg:py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="max-w-2xl mx-auto text-center">
+          <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink">Featured Dental Services</h2>
+          <p class="mt-4 text-slate-600">
+            We offer a full range of services, with a focus on treatments that enhance both
+            function and aesthetics. Each service is delivered with precision and a focus on your
+            overall well-being.
+          </p>
+        </div>
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((s) => (
+            <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-100">
+              <p class="font-heading text-sm font-semibold text-brand uppercase tracking-wide">
+                {s.eyebrow}
+              </p>
+              <h3 class="mt-2 font-heading text-xl font-semibold text-ink">{s.title}</h3>
+              <p class="mt-2 text-slate-600 text-sm">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mt-10 text-center">
+          <a
+            href="/services"
+            class="inline-block font-heading font-semibold text-white bg-brand rounded-full px-7 py-3.5 hover:bg-brand-dark transition-colors"
+          >
+            See All Services
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Holistic Approach -->
+    <section class="py-16 lg:py-24">
+      <div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink">
+            A Holistic Approach to Dentistry
+          </h2>
+          <p class="mt-4 text-slate-600">
+            We believe oral health is closely connected to your overall, systemic health. That's
+            why our care goes beyond treating symptoms—we focus on prevention, biocompatible
+            materials, minimally invasive treatments and other health-promoting techniques.
+          </p>
+          <ul class="mt-6 space-y-3">
+            {holisticPoints.map((p) => (
+              <li class="flex gap-3 text-slate-700">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-brand shrink-0"></span>
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="/about-us"
+            class="mt-8 inline-block font-heading font-semibold text-brand hover:text-brand-dark"
+          >
+            Explore Holistic Approach →
+          </a>
+        </div>
+        <div class="rounded-3xl overflow-hidden bg-slate-100 aspect-4/3">
+          <img
+            src="/images/hero-office.webp"
+            alt="Holistic dental treatment room"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="bg-slate-50 py-16 lg:py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="max-w-2xl mx-auto text-center">
+          <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink">
+            Meet Your Rochester Dental Team
+          </h2>
+          <p class="mt-4 text-slate-600">
+            Our doctors combine clinical expertise with a shared commitment to compassionate care.
+            Every provider focuses on delivering thoughtful, individualized treatment in a
+            supportive environment.
+          </p>
+        </div>
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {doctors.map((d) => (
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+              <img src={d.img} alt={d.name} class="w-full h-64 object-cover" loading="lazy" />
+              <div class="p-6">
+                <h3 class="font-heading text-lg font-semibold text-ink">{d.name}</h3>
+                <p class="text-sm font-medium text-brand mt-1">{d.role}</p>
+                <p class="mt-3 text-sm text-slate-600 leading-relaxed">{d.bio}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="mt-10 text-center">
+          <a
+            href="/about-us"
+            class="inline-block font-heading font-semibold text-white bg-brand rounded-full px-7 py-3.5 hover:bg-brand-dark transition-colors"
+          >
+            Meet the Doctors
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="py-16 lg:py-20">
+      <div class="mx-auto max-w-3xl px-6 text-center">
+        <h2 class="font-heading text-2xl lg:text-3xl font-medium text-ink">
+          Our Patients Love Us As Much As We Love Them...
+        </h2>
+        <div class="mt-6 flex items-center justify-center gap-3">
+          <span class="font-heading text-4xl font-semibold text-brand">4.9</span>
+          <span class="text-left text-sm text-slate-600">
+            Google Reviews<br />
+            <a href="https://www.google.com/search?q=contemporary+dentistry+rochester+ny+reviews" class="text-brand font-medium hover:text-brand-dark">
+              Write a Review
+            </a>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comprehensive care + Financial options -->
+    <section class="bg-slate-50 py-16 lg:py-24">
+      <div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="font-heading text-2xl lg:text-3xl font-medium text-ink">
+            Comprehensive Care in One Location
+          </h2>
+          <p class="mt-4 text-slate-600">
+            We provide a full spectrum of dental services so you can receive consistent,
+            coordinated care in one place.
+          </p>
+          <ul class="mt-6 space-y-3">
+            {comprehensiveCare.map((p) => (
+              <li class="flex gap-3 text-slate-700 text-sm">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-brand shrink-0"></span>
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 class="font-heading text-2xl lg:text-3xl font-medium text-ink">
+            Financial Options That Save You More
+          </h2>
+          <p class="mt-4 text-slate-600">
+            We believe oral care should be accessible to everyone. This is why we offer a variety
+            of payment and financial support options.
+          </p>
+          <ul class="mt-6 space-y-3">
+            {financialOptions.map((p) => (
+              <li class="flex gap-3 text-slate-700 text-sm">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-brand shrink-0"></span>
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patient experience -->
+    <section class="py-16 lg:py-24">
+      <div class="mx-auto max-w-3xl px-6 text-center">
+        <h2 class="font-heading text-2xl lg:text-3xl font-medium text-ink">
+          A Patient Experience Designed Around You
+        </h2>
+        <p class="mt-4 text-slate-600">
+          We've created a dental experience that prioritizes comfort, clarity, and convenience at
+          every step.
+        </p>
+        <ul class="mt-8 grid sm:grid-cols-2 gap-4 text-left">
+          {patientExperience.map((p) => (
+            <li class="flex gap-3 text-slate-700 text-sm bg-slate-50 rounded-xl p-4">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-brand shrink-0"></span>
+              <span>{p}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-slate-50 py-16 lg:py-24">
+      <div class="mx-auto max-w-3xl px-6">
+        <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink text-center">
+          Frequently Asked Questions
+        </h2>
+        <p class="mt-3 text-center text-slate-600">Answered by Our Expert Dentists</p>
+        <div class="mt-10 space-y-4">
+          {faqs.map((f) => (
+            <details class="group bg-white rounded-2xl border border-slate-100 p-6 open:shadow-sm">
+              <summary class="font-heading font-semibold text-ink cursor-pointer list-none flex justify-between items-center gap-4">
+                {f.q}
+                <span class="text-brand group-open:rotate-45 transition-transform text-2xl leading-none">+</span>
+              </summary>
+              <p class="mt-4 text-sm text-slate-600 leading-relaxed">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Appointment / Contact form -->
+    <section id="schedule" class="py-16 lg:py-24">
+      <div class="mx-auto max-w-3xl px-6">
+        <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink text-center">
+          Schedule Your Visit Today
+        </h2>
+        <p class="mt-4 text-slate-600 text-center">
+          Experience dentistry designed around your health, comfort, and confidence. Call
+          <a href="tel:+15852443337" class="text-brand font-medium">(585) 244-3337</a> or schedule
+          online below to get started.
+        </p>
+
+        <form
+          name="appointment-request"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="mt-10 bg-white rounded-2xl border border-slate-100 shadow-sm p-8 grid sm:grid-cols-2 gap-5"
+        >
+          <input type="hidden" name="form-name" value="appointment-request" />
+          <p class="hidden">
+            <label>Don't fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div>
+            <label class="block text-sm font-medium text-ink mb-1" for="firstName">First Name</label>
+            <input id="firstName" name="firstName" type="text" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-ink mb-1" for="lastName">Last Name</label>
+            <input id="lastName" name="lastName" type="text" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-ink mb-1" for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-ink mb-1" for="email">Email</label>
+            <input id="email" name="email" type="email" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20" />
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium text-ink mb-1" for="message">Message</label>
+            <textarea id="message" name="message" rows="4" class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"></textarea>
+          </div>
+
+          <div class="sm:col-span-2 flex items-start gap-3">
+            <input id="sms" name="smsConsent" type="checkbox" class="mt-1" />
+            <label for="sms" class="text-xs text-slate-500 leading-relaxed">
+              By checking this box, you agree to receive SMS care related updates from
+              Contemporary Dentistry at the phone number provided. Message frequency may vary.
+              Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is
+              not a condition of purchase.
+            </label>
+          </div>
+          <div class="sm:col-span-2 flex items-start gap-3">
+            <input id="privacy" name="privacyConsent" type="checkbox" required class="mt-1" />
+            <label for="privacy" class="text-xs text-slate-500 leading-relaxed">
+              I have read and agree to the <a href="/privacy-policy" class="underline">Privacy Policy</a>
+              and <a href="/terms-of-service" class="underline">Terms Of Use</a> *
+            </label>
+          </div>
+
+          <div class="sm:col-span-2">
+            <button
+              type="submit"
+              class="w-full sm:w-auto font-heading font-semibold text-white bg-brand rounded-full px-8 py-3.5 hover:bg-brand-dark transition-colors"
+            >
+              Request an Appointment
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

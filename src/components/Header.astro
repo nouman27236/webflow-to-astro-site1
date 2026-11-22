@@ -1,0 +1,38 @@
+---
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Services', href: '/services' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact Us', href: '/contact-us' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
+  <div class="mx-auto max-w-7xl px-6 flex items-center justify-between h-20">
+    <a href="/" class="shrink-0">
+      <img src="/images/logo.svg" alt="Contemporary Dentistry PLLC" class="h-10 w-auto" />
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8 font-heading text-sm font-medium text-ink">
+      {navLinks.map((link) => (
+        <a href={link.href} class="hover:text-brand transition-colors">{link.label}</a>
+      ))}
+    </nav>
+
+    <div class="hidden md:flex items-center gap-3">
+      <a
+        href="tel:+15852443337"
+        class="font-heading text-sm font-semibold text-ink border border-slate-200 rounded-full px-5 py-2.5 hover:border-brand hover:text-brand transition-colors"
+      >
+        Call Us (585) 244-3337
+      </a>
+      <a
+        href="/book-an-appointment"
+        class="font-heading text-sm font-semibold text-white bg-brand rounded-full px-5 py-2.5 hover:bg-brand-dark transition-colors"
+      >
+        Request an Appointment
+      </a>
+    </div>
+  </div>
+</header>

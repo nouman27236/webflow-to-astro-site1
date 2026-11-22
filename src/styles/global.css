@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Figtree", Arial, sans-serif;
+  --font-body: "Instrument Sans", Arial, sans-serif;
+
+  --color-brand: #087d7d;
+  --color-brand-dark: #066363;
+  --color-ink: #1e293b;
+}

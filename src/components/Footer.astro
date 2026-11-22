@@ -1,0 +1,70 @@
+---
+const serviceLinks = [
+  'Holistic Dentistry',
+  'Preventive Care',
+  'Enhancement Smile',
+  'Tooth Repair & Restoration',
+  'Dental Implants & Replacements',
+  'Sedation Dentistry',
+  'Specialized Treatments',
+  'Emergency Dentistry',
+];
+
+const resourceLinks = [
+  { label: 'Patient Information', href: '/patient-information' },
+  { label: 'Patient Profiles', href: '/patient-profiles' },
+  { label: 'Book an Appointment', href: '/book-an-appointment' },
+  { label: 'Contact Us', href: '/contact-us' },
+  { label: 'Blog', href: '/blog' },
+];
+
+const moreLinks = [
+  { label: 'Job Opportunities', href: '/job-opportunities' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Accessibility', href: '/accessibility' },
+  { label: 'Terms of Service', href: '/terms-of-service' },
+];
+---
+
+<footer class="bg-ink text-slate-300">
+  <div class="mx-auto max-w-7xl px-6 py-16 grid gap-12 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
+    <div>
+      <img src="/images/logo-white.svg" alt="Contemporary Dentistry PLLC" class="h-10 w-auto mb-6" />
+      <p class="text-sm leading-relaxed">
+        Phone: <a href="tel:+15852443337" class="hover:text-white">(585) 244-3337</a><br />
+        Address: 2052 S Clinton Ave, Rochester NY 14618
+      </p>
+      <p class="text-sm leading-relaxed mt-4">
+        Monday – Friday&nbsp;&nbsp;7:30am – 4:30pm<br />
+        Saturday & Sunday&nbsp;&nbsp;Closed
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading text-white font-semibold mb-4">Services</h3>
+      <ul class="space-y-2 text-sm">
+        {serviceLinks.map((s) => <li><a href="/services" class="hover:text-white">{s}</a></li>)}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-heading text-white font-semibold mb-4">Patient Resources</h3>
+      <ul class="space-y-2 text-sm">
+        {resourceLinks.map((l) => <li><a href={l.href} class="hover:text-white">{l.label}</a></li>)}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-heading text-white font-semibold mb-4">More</h3>
+      <ul class="space-y-2 text-sm">
+        {moreLinks.map((l) => <li><a href={l.href} class="hover:text-white">{l.label}</a></li>)}
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <p class="mx-auto max-w-7xl px-6 py-6 text-xs text-slate-400">
+      © {new Date().getFullYear()} Contemporary Dentistry. All rights reserved.
+    </p>
+  </div>
+</footer>
