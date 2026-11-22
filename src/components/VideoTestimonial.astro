@@ -1,0 +1,34 @@
+---
+interface Props {
+  youtubeId: string;
+}
+const { youtubeId } = Astro.props;
+---
+
+<div
+  class="yt-lite relative aspect-video rounded-xl overflow-hidden bg-ink cursor-pointer group"
+  data-yt-id={youtubeId}
+>
+  <img
+    src={`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`}
+    alt="Patient testimonial video"
+    class="w-full h-full object-cover"
+    loading="lazy"
+  />
+  <div class="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+    <div class="h-14 w-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M5 3.5L16 10L5 16.5V3.5Z" fill="#087d7d" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.yt-lite').forEach((el) => {
+    el.addEventListener('click', () => {
+      const id = el.dataset.ytId;
+      el.innerHTML = `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${id}?autoplay=1" title="Patient testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    }, { once: true });
+  });
+</script>

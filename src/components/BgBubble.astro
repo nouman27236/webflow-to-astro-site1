@@ -1,0 +1,27 @@
+---
+interface Props {
+  size?: string;
+  top?: string;
+  left?: string;
+  right?: string;
+  bottom?: string;
+  from?: string;
+  to?: string;
+  opacity?: number;
+}
+
+const {
+  size = '12rem',
+  top,
+  left,
+  right,
+  bottom,
+  from = '#ffffff',
+  to = '#d7eaea',
+  opacity = 0.3,
+} = Astro.props;
+
+const style = `width:${size};height:${size};top:${top ?? 'auto'};left:${left ?? 'auto'};right:${right ?? 'auto'};bottom:${bottom ?? 'auto'};background-image:linear-gradient(180deg, ${from}, ${to});opacity:${opacity};`;
+---
+
+<div class="bg-bubble" style={style}></div>

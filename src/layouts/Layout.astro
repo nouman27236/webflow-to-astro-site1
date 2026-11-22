@@ -13,12 +13,12 @@ const ogImage = new URL('/images/hero-office.webp', siteUrl);
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Dentist',
+  '@type': ['Dentist', 'LocalBusiness'],
   name: 'Contemporary Dentistry PLLC',
-  image: ogImage.toString(),
-  url: siteUrl,
-  telephone: '+1-585-244-3337',
-  priceRange: '$$',
+  alternateName: 'Dentistry With A Heart',
+  url: 'https://www.dentistrywithaheart.com',
+  telephone: '(585) 244-3337',
+  email: 'info@dentistrywithaheart.com',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '2052 S Clinton Ave',
@@ -27,20 +27,30 @@ const jsonLd = {
     postalCode: '14618',
     addressCountry: 'US',
   },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '07:30',
-      closes: '16:30',
-    },
+  openingHours: ['Mo-Fr 07:30-16:30'],
+  description:
+    "Contemporary Dentistry PLLC, known as 'Dentistry With A Heart,' is a holistic and biologic dental practice in Rochester, NY, combining advanced technology with genuine, compassionate care. The team offers comprehensive general, cosmetic, restorative, and holistic dentistry using biocompatible, non-allergenic materials in a calm, wellness-focused environment.",
+  isAcceptingNewPatients: true,
+  serviceArea: [
+    { '@type': 'AdministrativeArea', name: 'Rochester' },
+    { '@type': 'AdministrativeArea', name: 'Monroe County' },
+  ],
+  employee: [
+    { '@type': 'Person', name: 'Dr. Anna Belous', jobTitle: 'Dentist, DDS' },
+    { '@type': 'Person', name: 'Dr. Adriana Palacio', jobTitle: 'Dentist, DDS' },
+    { '@type': 'Person', name: 'Dr. Robert Calcagno', jobTitle: 'Dentist, DDS, FADI, FICD' },
+  ],
+  image: ogImage.toString(),
+  logo: new URL('/images/logo.svg', siteUrl).toString(),
+  sameAs: [
+    'https://www.facebook.com/ContemporaryDentistryRochester/',
+    'https://www.instagram.com/contemporarydentistryroc/',
   ],
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.9',
     reviewCount: '1',
   },
-  sameAs: [],
 };
 ---
 

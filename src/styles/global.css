@@ -7,4 +7,35 @@
   --color-brand: #087d7d;
   --color-brand-dark: #066363;
   --color-ink: #1e293b;
+  --color-muted: #64748b;
+  --color-navbg: #f2f8f8;
+  --color-tint-strong: #9dc8d3;
+  --color-tint-mid: #d7eaea;
+  --color-tint-soft: #f2f8f8;
+}
+
+/* soft decorative background circles, matching the source site's "decoration-light-1" blobs */
+.bg-bubble {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* infinite logo marquee */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 2rem));
+  }
+}
+.marquee-track {
+  animation: marquee-scroll 30s linear infinite;
+}
+
+/* gradient washes used behind sections, top -> tint -> bottom */
+.gradient-wash {
+  background-image: linear-gradient(180deg, #fff 0%, var(--tint, #f2f8f8) 50%, #fff 100%);
 }

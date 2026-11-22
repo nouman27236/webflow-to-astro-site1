@@ -1,37 +1,46 @@
 ---
 const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about-us' },
-  { label: 'Services', href: '/services' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contact Us', href: '/contact-us' },
+  { label: 'Home', href: '/', dropdown: false },
+  { label: 'About Us', href: '/about-us', dropdown: true },
+  { label: 'Services', href: '/services', dropdown: true },
+  { label: 'Patient Info', href: '/patient-information', dropdown: true },
+  { label: 'Patient Profiles', href: '/patient-profiles', dropdown: false },
+  { label: 'Blog', href: '/blog', dropdown: false },
+  { label: 'Contact Us', href: '/contact-us', dropdown: false },
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
-  <div class="mx-auto max-w-7xl px-6 flex items-center justify-between h-20">
+<header class="sticky top-0 z-50 bg-navbg">
+  <div class="mx-auto flex items-center justify-between h-[72px] px-6 lg:px-[72px]">
     <a href="/" class="shrink-0">
       <img src="/images/logo.svg" alt="Contemporary Dentistry PLLC" class="h-10 w-auto" />
     </a>
 
-    <nav class="hidden lg:flex items-center gap-8 font-heading text-sm font-medium text-ink">
+    <nav class="hidden lg:flex items-center gap-1 font-body text-sm text-ink">
       {navLinks.map((link) => (
-        <a href={link.href} class="hover:text-brand transition-colors">{link.label}</a>
+        <a href={link.href} class="flex items-center gap-1 px-2 py-2 hover:text-brand transition-colors">
+          {link.label}
+          {link.dropdown && (
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="opacity-70">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          )}
+        </a>
       ))}
     </nav>
 
     <div class="hidden md:flex items-center gap-3">
       <a
-        href="tel:+15852443337"
-        class="font-heading text-sm font-semibold text-ink border border-slate-200 rounded-full px-5 py-2.5 hover:border-brand hover:text-brand transition-colors"
-      >
-        Call Us (585) 244-3337
-      </a>
-      <a
         href="/book-an-appointment"
-        class="font-heading text-sm font-semibold text-white bg-brand rounded-full px-5 py-2.5 hover:bg-brand-dark transition-colors"
+        class="font-body text-sm font-semibold text-white bg-brand border-2 border-brand rounded-full px-5 py-2.5 hover:bg-brand-dark transition-colors"
       >
         Request an Appointment
+      </a>
+      <a
+        href="tel:+15852443337"
+        class="font-body text-sm font-semibold text-brand border-2 border-brand rounded-full px-5 py-2.5 hover:bg-brand hover:text-white transition-colors"
+      >
+        Call Us (585) 244-3337
       </a>
     </div>
   </div>

@@ -2,38 +2,69 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import BgBubble from '../components/BgBubble.astro';
+import VideoTestimonial from '../components/VideoTestimonial.astro';
 
 const services = [
   {
     eyebrow: 'Nurture & Harmonize',
     title: 'Holistic & Biologic Dentistry',
     desc: 'Your oral and overall health interconnected',
+    img: '/images/services/holistic.avif',
+    icon: '/images/services/icon-holistic.avif',
+    href: '/services/holistic-dentistry',
   },
   {
     eyebrow: 'Restore & Preserve',
     title: 'General/Restorative Dentistry',
     desc: 'Restore damaged teeth and improve strength',
+    img: '/images/services/restorative.webp',
+    icon: '/images/services/icon-restorative.svg',
+    href: '/services',
   },
   {
     eyebrow: 'Calm Down & Relax',
     title: 'Sedation & Relaxation',
     desc: 'For a more relaxed, comfortable experience',
+    img: '/images/services/sedation.avif',
+    icon: '/images/services/icon-sedation.svg',
+    href: '/services/sedation-dentistry',
   },
   {
     eyebrow: 'Refine & Enhance',
     title: 'Cosmetic Dentistry',
     desc: 'Refine with veneers, bonding, whitening & more',
+    img: '/images/services/cosmetic.webp',
+    icon: '/images/services/icon-cosmetic.svg',
+    href: '/services/smile-enhancement',
   },
   {
     eyebrow: 'Straighten & Align',
     title: 'Invisalign',
     desc: 'Straighten your teeth fast and discreetly',
+    img: '/images/services/invisalign.webp',
+    icon: '/images/services/icon-invisalign.svg',
+    href: '/services/orthodontics/invisalign',
   },
   {
     eyebrow: 'Rebuild & Rehabilitate',
     title: 'Dental Implants',
     desc: 'Permanent, lasting tooth replacements',
+    img: '/images/services/implants.avif',
+    icon: '/images/services/icon-implants.svg',
+    href: '/services/dental-implants/implants',
   },
+];
+
+const trustLogos = [
+  '/images/trust/logo1.avif',
+  '/images/trust/logo2.png',
+  '/images/trust/logo3.avif',
+  '/images/trust/logo4.avif',
+  '/images/trust/logo5.avif',
+  '/images/trust/logo6.avif',
+  '/images/trust/logo7.avif',
+  '/images/trust/logo8.avif',
 ];
 
 const holisticPoints = [
@@ -66,6 +97,8 @@ const doctors = [
     img: '/images/dr-calcagno.webp',
   },
 ];
+
+const testimonialVideoIds = ['5WHHKeTUGqY', '5VJNYF6mYWw', 'kajKl7tUvmc', '5HAcpdiKOso', 'tKJv3zOMhZI', '7bFachlS4FI'];
 
 const comprehensiveCare = [
   'Preventive care and routine maintenance',
@@ -116,6 +149,33 @@ const faqs = [
     a: "We focus on making dental care accessible for all — reducing costs, personalized treatment plans, flexible payment options, no- and low-interest financing, and accepting a wide range of insurances.",
   },
 ];
+
+const blogPosts = [
+  {
+    img: '/images/blog/veneers.avif',
+    tags: ['Tooth Repair & Restoration', 'Cosmetic Dentistry', 'Veneers'],
+    title: 'Can Veneers Replace Missing Teeth?',
+    excerpt: "Let's discuss veneers and dive into what they can and cannot do.",
+    author: 'Dr. Anna Belous',
+    authorImg: '/images/avatar-belous.avif',
+  },
+  {
+    img: '/images/blog/holistic-dentist.avif',
+    tags: ['Holistic & Biologic Dentistry', 'Preventative Dentistry', 'Cosmetic Dentistry'],
+    title: 'What is a Holistic Dentist?',
+    excerpt: 'Cut through the fluff and understand who these professionals really are.',
+    author: 'Dr. Adriana Palacio',
+    authorImg: '/images/avatar-palacio.avif',
+  },
+  {
+    img: '/images/blog/crown.avif',
+    tags: ['Emergency Dentistry', 'Crowns', 'Dental Cleanings'],
+    title: 'Can I Brush My Teeth If My Crown Fell Off?',
+    excerpt: 'Things you should and should not do until you see your dentist.',
+    author: 'Dr. Anna Belous',
+    authorImg: '/images/avatar-belous.avif',
+  },
+];
 ---
 
 <Layout
@@ -126,53 +186,78 @@ const faqs = [
 
   <main>
     <!-- Hero -->
-    <section class="relative overflow-hidden">
-      <div class="mx-auto max-w-7xl px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
+    <section class="relative overflow-hidden gradient-wash" style="--tint:#9dc8d3">
+      <div class="mx-auto max-w-[96rem] px-6 lg:px-[72px] py-14 lg:py-20 grid lg:grid-cols-[auto_1fr_1.25fr] gap-6 lg:gap-10 items-center">
+        <img
+          src="/images/hero-rail.png"
+          alt=""
+          class="hidden lg:block h-[26rem] w-auto self-end justify-self-start"
+        />
+
         <div>
-          <h1 class="font-heading text-4xl lg:text-5xl font-medium text-ink leading-tight">
+          <h1 class="font-heading text-4xl lg:text-5xl font-normal text-ink leading-tight max-w-xl">
             Personalized, Holistic Dental Care in Rochester, NY
           </h1>
-          <p class="mt-6 text-lg text-slate-600 leading-relaxed">
-            At Contemporary Dentistry, we provide a different kind of dental experience—one that
-            blends advanced clinical care with a holistic, wellness-focused philosophy. Our
-            Rochester, NY dental office is built around comfort, empathy, and genuine compassion,
-            ensuring every patient feels supported from their very first visit.
-          </p>
-          <p class="mt-4 text-lg text-slate-600 leading-relaxed">
-            Whether you're maintaining your oral health or seeking a complete smile
-            transformation, our team delivers dental care that is tailored, thoughtful, and
-            designed for lasting results.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-4">
+          <div class="mt-6 max-w-md text-slate-700 leading-relaxed space-y-4">
+            <p>
+              At <strong>Contemporary Dentistry</strong>, we provide a different kind of dental
+              experience—one that blends advanced clinical care with a holistic, wellness-focused
+              philosophy. Our Rochester, NY dental office is built around comfort, empathy, and
+              genuine compassion, ensuring every patient feels supported from their very first
+              visit.
+            </p>
+            <p>
+              Whether you're maintaining your oral health or seeking a complete smile
+              transformation, our team delivers dental care that is tailored, thoughtful, and
+              designed for lasting results.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="rounded-3xl overflow-hidden shadow-xl aspect-video">
+            <video
+              class="w-full h-full object-cover"
+              autoplay
+              loop
+              muted
+              playsinline
+              poster="/images/hero-video-poster.webp"
+            >
+              <source src="/images/hero-video.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <a
+            href="/contact-us"
+            aria-label="Accepting New Patients"
+            class="absolute -top-8 right-6 w-24 lg:w-28 drop-shadow-lg hover:-translate-y-0.5 transition-transform"
+          >
+            <img src="/images/hero-badge.avif" alt="Accepting New Patients" class="w-full h-auto" />
+          </a>
+
+          <div class="mt-6 flex flex-wrap gap-4">
             <a
               href="/book-an-appointment"
-              class="font-heading font-semibold text-white bg-brand rounded-full px-7 py-3.5 hover:bg-brand-dark transition-colors"
+              class="font-heading font-semibold text-white bg-brand border-2 border-brand rounded-full px-7 py-3.5 hover:bg-brand-dark transition-colors"
             >
               Request an Appointment
             </a>
             <a
               href="tel:+15852443337"
-              class="font-heading font-semibold text-ink border border-slate-300 rounded-full px-7 py-3.5 hover:border-brand hover:text-brand transition-colors"
+              class="font-heading font-semibold text-brand border-2 border-brand rounded-full px-7 py-3.5 hover:bg-brand hover:text-white transition-colors"
             >
               Call Us (585) 244-3337
             </a>
           </div>
         </div>
-        <div class="rounded-3xl overflow-hidden shadow-xl">
-          <img
-            src="/images/hero-office.webp"
-            alt="Contemporary Dentistry office in Rochester, NY"
-            class="w-full h-full object-cover"
-            width="1620"
-            height="1080"
-          />
-        </div>
       </div>
     </section>
 
     <!-- Featured Services -->
-    <section class="bg-slate-50 py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-6">
+    <section class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#f2f8f8">
+      <BgBubble size="16rem" top="-4rem" left="-4rem" from="#ffffff" to="#d7eaea" opacity={0.3} />
+      <div class="relative mx-auto max-w-7xl px-6">
         <div class="max-w-2xl mx-auto text-center">
           <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink">Featured Dental Services</h2>
           <p class="mt-4 text-slate-600">
@@ -181,21 +266,27 @@ const faqs = [
             overall well-being.
           </p>
         </div>
-        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
           {services.map((s) => (
-            <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-100">
-              <p class="font-heading text-sm font-semibold text-brand uppercase tracking-wide">
-                {s.eyebrow}
-              </p>
-              <h3 class="mt-2 font-heading text-xl font-semibold text-ink">{s.title}</h3>
-              <p class="mt-2 text-slate-600 text-sm">{s.desc}</p>
-            </div>
+            <a href={s.href} class="relative block bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] pt-6">
+              <div class="relative mx-0">
+                <img src={s.img} alt={s.title} class="w-full h-48 object-cover rounded-t-2xl" loading="lazy" />
+                <div class="absolute -bottom-4 left-4 bg-white rounded-full shadow-md px-3 py-1.5 flex items-center gap-2 text-xs font-medium text-ink">
+                  <img src={s.icon} alt="" class="h-4 w-4" />
+                  {s.eyebrow}
+                </div>
+              </div>
+              <div class="p-6 pt-8">
+                <h3 class="font-heading text-lg font-semibold text-ink">{s.title}</h3>
+                <p class="mt-2 text-muted text-sm">{s.desc}</p>
+              </div>
+            </a>
           ))}
         </div>
-        <div class="mt-10 text-center">
+        <div class="mt-12 text-center">
           <a
             href="/services"
-            class="inline-block font-heading font-semibold text-white bg-brand rounded-full px-7 py-3.5 hover:bg-brand-dark transition-colors"
+            class="inline-block font-heading font-semibold text-white bg-brand border-2 border-brand rounded-full px-7 py-3.5 hover:bg-brand-dark transition-colors"
           >
             See All Services
           </a>
@@ -203,10 +294,33 @@ const faqs = [
       </div>
     </section>
 
+    <!-- Trust logo marquee -->
+    <section class="bg-white py-10 overflow-hidden">
+      <div class="flex w-max">
+        {[0, 1].map(() => (
+          <div class="flex items-center gap-16 pr-16 marquee-track shrink-0">
+            {trustLogos.map((logo) => (
+              <img src={logo} alt="" class="h-16 w-auto object-contain opacity-80" loading="lazy" />
+            ))}
+          </div>
+        ))}
+      </div>
+    </section>
+
     <!-- Holistic Approach -->
-    <section class="py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <div>
+    <section class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#f2f8f8">
+      <BgBubble size="10rem" bottom="0" left="5%" from="#ffffff" to="#f2f8f8" opacity={0.6} />
+      <BgBubble size="20rem" top="20%" right="-6rem" from="#fff" to="#d7eaea" opacity={0.2} />
+      <div class="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="rounded-3xl overflow-hidden shadow-lg order-2 lg:order-1">
+          <img
+            src="/images/holistic-approach.webp"
+            alt="Holistic dental treatment"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div class="order-1 lg:order-2">
           <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink">
             A Holistic Approach to Dentistry
           </h2>
@@ -224,26 +338,18 @@ const faqs = [
             ))}
           </ul>
           <a
-            href="/about-us"
-            class="mt-8 inline-block font-heading font-semibold text-brand hover:text-brand-dark"
+            href="/services/holistic-dentistry"
+            class="mt-8 inline-block font-heading font-semibold text-white bg-brand border-2 border-brand rounded-full px-7 py-3.5 hover:bg-brand-dark transition-colors"
           >
-            Explore Holistic Approach →
+            Explore Holistic Approach
           </a>
-        </div>
-        <div class="rounded-3xl overflow-hidden bg-slate-100 aspect-4/3">
-          <img
-            src="/images/hero-office.webp"
-            alt="Holistic dental treatment room"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
         </div>
       </div>
     </section>
 
     <!-- Team -->
-    <section class="bg-slate-50 py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-6">
+    <section class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#d7eaea">
+      <div class="relative mx-auto max-w-7xl px-6">
         <div class="max-w-2xl mx-auto text-center">
           <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink">
             Meet Your Rochester Dental Team
@@ -269,7 +375,7 @@ const faqs = [
         <div class="mt-10 text-center">
           <a
             href="/about-us"
-            class="inline-block font-heading font-semibold text-white bg-brand rounded-full px-7 py-3.5 hover:bg-brand-dark transition-colors"
+            class="inline-block font-heading font-semibold text-white bg-brand border-2 border-brand rounded-full px-7 py-3.5 hover:bg-brand-dark transition-colors"
           >
             Meet the Doctors
           </a>
@@ -277,16 +383,19 @@ const faqs = [
       </div>
     </section>
 
-    <!-- Reviews -->
-    <section class="py-16 lg:py-20">
-      <div class="mx-auto max-w-3xl px-6 text-center">
-        <h2 class="font-heading text-2xl lg:text-3xl font-medium text-ink">
+    <!-- Reviews / video testimonials -->
+    <section class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#f2f8f8">
+      <div class="relative mx-auto max-w-5xl px-6">
+        <h2 class="font-heading text-2xl lg:text-3xl font-medium text-ink text-center">
           Our Patients Love Us As Much As We Love Them...
         </h2>
-        <div class="mt-6 flex items-center justify-center gap-3">
+        <div class="mt-10 grid grid-cols-2 lg:grid-cols-3 gap-4">
+          {testimonialVideoIds.map((id) => <VideoTestimonial youtubeId={id} />)}
+        </div>
+        <div class="mt-10 flex items-center justify-center gap-3">
           <span class="font-heading text-4xl font-semibold text-brand">4.9</span>
           <span class="text-left text-sm text-slate-600">
-            Google Reviews<br />
+            Patient Reviews<br />Google Reviews<br />
             <a href="https://www.google.com/search?q=contemporary+dentistry+rochester+ny+reviews" class="text-brand font-medium hover:text-brand-dark">
               Write a Review
             </a>
@@ -295,35 +404,64 @@ const faqs = [
       </div>
     </section>
 
-    <!-- Comprehensive care + Financial options -->
-    <section class="bg-slate-50 py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12">
-        <div>
-          <h2 class="font-heading text-2xl lg:text-3xl font-medium text-ink">
-            Comprehensive Care in One Location
-          </h2>
-          <p class="mt-4 text-slate-600">
+    <!-- Comprehensive Care (dark photo banner) -->
+    <section class="relative overflow-hidden py-20 lg:py-28">
+      <div class="absolute inset-0">
+        <img src="/images/care-bg.avif" alt="" class="w-full h-full object-cover" loading="lazy" />
+        <div class="absolute inset-0 bg-ink/75"></div>
+      </div>
+      <div class="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="text-white">
+          <h2 class="font-heading text-2xl lg:text-3xl font-medium">Comprehensive Care in One Location</h2>
+          <p class="mt-4 text-white/80">
             We provide a full spectrum of dental services so you can receive consistent,
             coordinated care in one place.
           </p>
-          <ul class="mt-6 space-y-3">
+          <p class="mt-3 text-white/80">Our services include:</p>
+          <ul class="mt-4 space-y-3">
             {comprehensiveCare.map((p) => (
-              <li class="flex gap-3 text-slate-700 text-sm">
-                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-brand shrink-0"></span>
+              <li class="flex gap-3 text-white/90 text-sm">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-white shrink-0"></span>
                 <span>{p}</span>
               </li>
             ))}
           </ul>
+          <p class="mt-4 text-white/80 text-sm">
+            This comprehensive approach ensures continuity and convenience for every patient.
+          </p>
         </div>
+        <div class="relative h-80 lg:h-96 hidden lg:block">
+          <img
+            src="/images/care-1.webp"
+            alt=""
+            class="absolute top-0 left-0 w-3/4 h-3/4 object-cover rounded-2xl shadow-2xl"
+            loading="lazy"
+          />
+          <img
+            src="/images/care-2.avif"
+            alt=""
+            class="absolute bottom-0 right-0 w-3/5 h-3/5 object-cover rounded-2xl shadow-2xl border-4 border-white"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Financial Options -->
+    <section class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#f2f8f8">
+      <BgBubble size="14rem" top="10%" right="-5rem" from="#fff" to="#d7eaea" opacity={0.3} />
+      <div class="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <h2 class="font-heading text-2xl lg:text-3xl font-medium text-ink">
             Financial Options That Save You More
           </h2>
           <p class="mt-4 text-slate-600">
             We believe oral care should be accessible to everyone. This is why we offer a variety
-            of payment and financial support options.
+            of payment and financial support options that let our patients say "Yes!" to treatment
+            plans that ensure their optimal oral and overall health.
           </p>
-          <ul class="mt-6 space-y-3">
+          <p class="mt-3 text-slate-600">Our financial support options include:</p>
+          <ul class="mt-4 space-y-3">
             {financialOptions.map((p) => (
               <li class="flex gap-3 text-slate-700 text-sm">
                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-brand shrink-0"></span>
@@ -331,34 +469,81 @@ const faqs = [
               </li>
             ))}
           </ul>
+          <p class="mt-4 text-slate-600 text-sm">
+            Our philosophy is simple - a patient dealing with an oral health issue should not have
+            to refuse treatment because of their financial situation. We work with you to make
+            dental care accessible.
+          </p>
+        </div>
+        <div class="relative h-80 lg:h-96 hidden lg:block">
+          <img
+            src="/images/financial-1.webp"
+            alt=""
+            class="absolute top-0 right-0 w-3/4 h-3/4 object-cover rounded-2xl shadow-xl"
+            loading="lazy"
+          />
+          <img
+            src="/images/financial-2.webp"
+            alt=""
+            class="absolute bottom-0 left-0 w-3/5 h-3/5 object-cover rounded-2xl shadow-xl border-4 border-white"
+            loading="lazy"
+          />
+          <div class="absolute top-6 left-6 bg-white rounded-full p-3 shadow-lg">
+            <img src="/images/financial-icon.svg" alt="" class="h-8 w-8" />
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Patient experience -->
-    <section class="py-16 lg:py-24">
-      <div class="mx-auto max-w-3xl px-6 text-center">
-        <h2 class="font-heading text-2xl lg:text-3xl font-medium text-ink">
-          A Patient Experience Designed Around You
-        </h2>
-        <p class="mt-4 text-slate-600">
-          We've created a dental experience that prioritizes comfort, clarity, and convenience at
-          every step.
-        </p>
-        <ul class="mt-8 grid sm:grid-cols-2 gap-4 text-left">
-          {patientExperience.map((p) => (
-            <li class="flex gap-3 text-slate-700 text-sm bg-slate-50 rounded-xl p-4">
-              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-brand shrink-0"></span>
-              <span>{p}</span>
-            </li>
-          ))}
-        </ul>
+    <!-- Patient Experience (image left, reversed) -->
+    <section class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#f2f8f8">
+      <BgBubble size="10rem" bottom="5%" left="-3rem" from="#fff" to="#f2f8f8" opacity={0.5} />
+      <div class="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="relative h-80 lg:h-96 hidden lg:block order-1">
+          <img
+            src="/images/experience-1.avif"
+            alt=""
+            class="absolute top-0 left-0 w-3/4 h-3/4 object-cover rounded-2xl shadow-xl"
+            loading="lazy"
+          />
+          <img
+            src="/images/experience-2.webp"
+            alt=""
+            class="absolute bottom-0 right-0 w-3/5 h-3/5 object-cover rounded-2xl shadow-xl border-4 border-white"
+            loading="lazy"
+          />
+          <div class="absolute top-6 right-6 bg-white rounded-full p-3 shadow-lg">
+            <img src="/images/experience-icon.svg" alt="" class="h-8 w-8" />
+          </div>
+        </div>
+        <div class="order-2">
+          <h2 class="font-heading text-2xl lg:text-3xl font-medium text-ink">
+            A Patient Experience Designed Around You
+          </h2>
+          <p class="mt-4 text-slate-600">
+            We've created a dental experience that prioritizes comfort, clarity, and convenience
+            at every step.
+          </p>
+          <p class="mt-3 text-slate-600">Patients benefit from:</p>
+          <ul class="mt-4 space-y-3">
+            {patientExperience.map((p) => (
+              <li class="flex gap-3 text-slate-700 text-sm">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-brand shrink-0"></span>
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-4 text-slate-600 text-sm">
+            From your first visit to ongoing care, we focus on making your experience smooth and
+            stress-free.
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="bg-slate-50 py-16 lg:py-24">
-      <div class="mx-auto max-w-3xl px-6">
+    <section class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#d7eaea">
+      <div class="relative mx-auto max-w-3xl px-6">
         <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink text-center">
           Frequently Asked Questions
         </h2>
@@ -377,9 +562,59 @@ const faqs = [
       </div>
     </section>
 
+    <!-- Blog teaser -->
+    <section class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#f2f8f8">
+      <div class="relative mx-auto max-w-7xl px-6">
+        <div class="max-w-2xl mx-auto text-center">
+          <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink">
+            Learn From Our Doctors & Hygienists
+          </h2>
+          <p class="mt-4 text-slate-600">
+            Explore helpful dental insights directly from our doctors and hygienists. Browse
+            articles on preventive care, cosmetic dentistry, dental implants, oral health
+            concerns, and treatment options to make informed decisions about your smile.
+          </p>
+        </div>
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {blogPosts.map((post) => (
+            <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] overflow-hidden">
+              <div class="relative">
+                <img src={post.img} alt={post.title} class="w-full h-44 object-cover" loading="lazy" />
+                <div class="absolute bottom-0 left-0 right-0 translate-y-1/2 px-4 flex flex-wrap gap-1.5">
+                  {post.tags.map((t, i) => (
+                    <span
+                      class={`text-[11px] font-medium px-2.5 py-1 rounded-full shadow-sm ${i === 0 ? 'bg-brand text-white' : 'bg-white text-ink'}`}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div class="p-5 pt-8">
+                <h3 class="font-heading text-lg font-semibold text-ink">{post.title}</h3>
+                <p class="mt-2 text-muted text-sm">{post.excerpt}</p>
+                <div class="mt-4 flex items-center gap-2">
+                  <img src={post.authorImg} alt={post.author} class="h-6 w-6 rounded-full object-cover" />
+                  <span class="text-xs font-medium text-ink">{post.author}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="mt-12 text-center">
+          <a
+            href="/blog"
+            class="inline-block font-heading font-semibold text-white bg-brand border-2 border-brand rounded-full px-7 py-3.5 hover:bg-brand-dark transition-colors"
+          >
+            See & Learn More
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Appointment / Contact form -->
-    <section id="schedule" class="py-16 lg:py-24">
-      <div class="mx-auto max-w-3xl px-6">
+    <section id="schedule" class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#f2f8f8">
+      <div class="relative mx-auto max-w-3xl px-6">
         <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink text-center">
           Schedule Your Visit Today
         </h2>
@@ -442,7 +677,7 @@ const faqs = [
           <div class="sm:col-span-2">
             <button
               type="submit"
-              class="w-full sm:w-auto font-heading font-semibold text-white bg-brand rounded-full px-8 py-3.5 hover:bg-brand-dark transition-colors"
+              class="w-full sm:w-auto font-heading font-semibold text-white bg-brand border-2 border-brand rounded-full px-8 py-3.5 hover:bg-brand-dark transition-colors"
             >
               Request an Appointment
             </button>
