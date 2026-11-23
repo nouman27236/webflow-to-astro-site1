@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://contemporary-dentistry-astro.netlify.app/sitemap.xml
+Sitemap: https://testing-astro-27236.netlify.app/sitemap.xml
