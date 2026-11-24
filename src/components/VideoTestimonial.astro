@@ -8,6 +8,7 @@ const { youtubeId } = Astro.props;
 <div
   class="yt-lite relative aspect-video rounded-xl overflow-hidden bg-ink cursor-pointer group"
   data-yt-id={youtubeId}
+  data-animate="scale-up"
 >
   <img
     src={`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`}

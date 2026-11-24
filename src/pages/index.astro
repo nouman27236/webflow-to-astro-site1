@@ -191,14 +191,15 @@ const blogPosts = [
         <img
           src="/images/hero-rail.png"
           alt=""
+          data-animate="fade-up"
           class="hidden lg:block h-[26rem] w-auto self-end justify-self-start"
         />
 
-        <div>
-          <h1 class="font-heading text-4xl lg:text-5xl font-normal text-ink leading-tight max-w-xl">
+        <div data-animate-stagger="150">
+          <h1 data-animate="fade-up" class="font-heading text-4xl lg:text-5xl font-normal text-ink leading-tight max-w-xl">
             Personalized, Holistic Dental Care in Rochester, NY
           </h1>
-          <div class="mt-6 max-w-md text-slate-700 leading-relaxed space-y-4">
+          <div data-animate="fade-up" class="mt-6 max-w-md text-slate-700 leading-relaxed space-y-4">
             <p>
               At <strong>Contemporary Dentistry</strong>, we provide a different kind of dental
               experience—one that blends advanced clinical care with a holistic, wellness-focused
@@ -214,7 +215,7 @@ const blogPosts = [
           </div>
         </div>
 
-        <div class="relative">
+        <div class="relative" data-animate="scale-up">
           <div class="rounded-3xl overflow-hidden shadow-xl aspect-video">
             <video
               class="w-full h-full object-cover"
@@ -260,7 +261,7 @@ const blogPosts = [
     <section class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#f2f8f8">
       <BgBubble size="16rem" top="-4rem" left="-4rem" from="#ffffff" to="#d7eaea" opacity={0.3} />
       <div class="relative mx-auto max-w-7xl px-6">
-        <div class="max-w-2xl mx-auto text-center">
+        <div class="max-w-2xl mx-auto text-center" data-animate="fade-up">
           <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink">Featured Dental Services</h2>
           <p class="mt-4 text-slate-600">
             We offer a full range of services, with a focus on treatments that enhance both
@@ -268,9 +269,9 @@ const blogPosts = [
             overall well-being.
           </p>
         </div>
-        <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+        <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10" data-animate-stagger="100">
           {services.map((s) => (
-            <a href={s.href} class="relative block bg-white rounded-2xl shadow-[0_2px_5px_rgba(0,0,0,0.1)] overflow-hidden">
+            <a href={s.href} data-animate="scale-up" class="relative block bg-white rounded-2xl shadow-[0_2px_5px_rgba(0,0,0,0.1)] overflow-hidden">
               <div class="relative">
                 <img src={s.img} alt={s.title} class="w-full h-80 object-cover" loading="lazy" />
                 <div class="absolute bottom-2 left-2 bg-white/90 rounded-full shadow-[0_2px_5px_rgba(0,0,0,0.2)] px-4 py-1 flex items-center gap-2 text-xs font-semibold text-[#3a6e6e]">
@@ -314,7 +315,7 @@ const blogPosts = [
       <BgBubble size="10rem" bottom="0" left="5%" from="#ffffff" to="#f2f8f8" opacity={0.6} />
       <BgBubble size="20rem" top="20%" right="-6rem" from="#fff" to="#d7eaea" opacity={0.2} />
       <div class="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="relative max-w-[26rem] order-2 lg:order-1">
+        <div class="relative max-w-[26rem] order-2 lg:order-1" data-animate="scale-up">
           <div class="absolute inset-0 translate-x-6 translate-y-6 aspect-[469/607] rounded-t-[18.75rem] rounded-b-2xl border border-[#b8d8d8]"></div>
           <img
             src="/images/holistic-approach.webp"
@@ -323,7 +324,7 @@ const blogPosts = [
             loading="lazy"
           />
         </div>
-        <div class="order-1 lg:order-2">
+        <div class="order-1 lg:order-2" data-animate="slide-in-right">
           <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink">
             A Holistic Approach to Dentistry
           </h2>
@@ -363,9 +364,9 @@ const blogPosts = [
             supportive environment.
           </p>
         </div>
-        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8" data-animate-stagger="150">
           {doctors.map((d) => (
-            <div class="text-center">
+            <div class="text-center" data-animate="scale-up">
               <img
                 src={d.img}
                 alt={d.name}
@@ -395,7 +396,7 @@ const blogPosts = [
         <h2 class="font-heading text-2xl lg:text-3xl font-medium text-ink text-center">
           Our Patients Love Us As Much As We Love Them...
         </h2>
-        <div class="mt-10 grid grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="mt-10 grid grid-cols-2 lg:grid-cols-3 gap-4" data-animate-stagger="100">
           {testimonialVideoIds.map((id) => <VideoTestimonial youtubeId={id} />)}
         </div>
         <div class="mt-10 flex items-center justify-center gap-3">
@@ -417,7 +418,7 @@ const blogPosts = [
         <div class="absolute inset-0 bg-linear-to-b from-[#2d5555]/95 to-[#4a8585]/85"></div>
       </div>
       <div class="relative mx-auto max-w-[100rem] px-6 lg:pl-[72px] lg:pr-0 grid lg:grid-cols-[1fr_1.15fr] gap-12 items-center">
-        <div class="text-white">
+        <div class="text-white" data-animate="slide-in-left">
           <h2 class="font-heading text-2xl lg:text-3xl font-medium">Comprehensive Care in One Location</h2>
           <p class="mt-4 text-white/80">
             We provide a full spectrum of dental services so you can receive consistent,
@@ -436,7 +437,7 @@ const blogPosts = [
             This comprehensive approach ensures continuity and convenience for every patient.
           </p>
         </div>
-        <div class="relative h-[34rem] hidden lg:block -mr-6 lg:-mr-10">
+        <div class="relative h-[34rem] hidden lg:block -mr-6 lg:-mr-10" data-animate="scale-up">
           <img
             src="/images/care-1.webp"
             alt=""
@@ -457,7 +458,7 @@ const blogPosts = [
     <section class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#f2f8f8">
       <BgBubble size="14rem" top="10%" right="-5rem" from="#fff" to="#d7eaea" opacity={0.3} />
       <div class="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <div>
+        <div data-animate="slide-in-left">
           <h2 class="font-heading text-2xl lg:text-3xl font-medium text-ink">
             Financial Options That Save You More
           </h2>
@@ -481,7 +482,7 @@ const blogPosts = [
             dental care accessible.
           </p>
         </div>
-        <div class="relative h-80 lg:h-96 hidden lg:block">
+        <div class="relative h-80 lg:h-96 hidden lg:block" data-animate="scale-up">
           <img
             src="/images/financial-1.webp"
             alt=""
@@ -505,7 +506,7 @@ const blogPosts = [
     <section class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#f2f8f8">
       <BgBubble size="10rem" bottom="5%" left="-3rem" from="#fff" to="#f2f8f8" opacity={0.5} />
       <div class="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="relative h-80 lg:h-96 hidden lg:block order-1">
+        <div class="relative h-80 lg:h-96 hidden lg:block order-1" data-animate="scale-up">
           <img
             src="/images/experience-1.avif"
             alt=""
@@ -522,7 +523,7 @@ const blogPosts = [
             <img src="/images/experience-icon.svg" alt="" class="h-8 w-8" />
           </div>
         </div>
-        <div class="order-2">
+        <div class="order-2" data-animate="slide-in-right">
           <h2 class="font-heading text-2xl lg:text-3xl font-medium text-ink">
             A Patient Experience Designed Around You
           </h2>
@@ -554,9 +555,9 @@ const blogPosts = [
           Frequently Asked Questions
         </h2>
         <p class="mt-3 text-center text-slate-600">Answered by Our Expert Dentists</p>
-        <div class="mt-10 space-y-4">
+        <div class="mt-10 space-y-4" data-animate-stagger="80">
           {faqs.map((f) => (
-            <details class="group bg-white rounded-2xl border border-slate-100 p-6 open:shadow-sm">
+            <details data-animate="fade-up" class="group bg-white rounded-2xl border border-slate-100 p-6 open:shadow-sm">
               <summary class="font-heading font-semibold text-ink cursor-pointer list-none flex justify-between items-center gap-4">
                 {f.q}
                 <span class="text-brand group-open:rotate-45 transition-transform text-2xl leading-none">+</span>
@@ -581,9 +582,9 @@ const blogPosts = [
             concerns, and treatment options to make informed decisions about your smile.
           </p>
         </div>
-        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6" data-animate-stagger="100">
           {blogPosts.map((post) => (
-            <a href="/blog" class="block bg-white rounded-2xl shadow-[0_2px_5px_rgba(0,0,0,0.1)] overflow-hidden">
+            <a href="/blog" data-animate="scale-up" class="block bg-white rounded-2xl shadow-[0_2px_5px_rgba(0,0,0,0.1)] overflow-hidden">
               <div class="relative">
                 <img src={post.img} alt={post.title} class="w-full h-80 object-cover" loading="lazy" />
                 <span class="absolute bottom-2 left-2 text-xs font-semibold px-4 py-1 rounded-full shadow-[0_2px_5px_rgba(0,0,0,0.2)] bg-brand text-white">
@@ -630,7 +631,7 @@ const blogPosts = [
     <!-- Appointment / Contact form -->
     <section id="schedule" class="relative overflow-hidden gradient-wash py-16 lg:py-24" style="--tint:#f2f8f8">
       <div class="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <div>
+        <div data-animate="slide-in-left">
           <h2 class="font-heading text-3xl lg:text-4xl font-medium text-ink">Schedule Your Visit Today</h2>
           <p class="mt-4 text-slate-600">
             Experience dentistry designed around your health, comfort, and confidence. Call
@@ -702,7 +703,7 @@ const blogPosts = [
           </form>
         </div>
 
-        <div class="hidden lg:block">
+        <div class="hidden lg:block" data-animate="scale-up">
           <img src="/images/contact-image.png" alt="" class="w-full h-auto" loading="lazy" />
         </div>
       </div>

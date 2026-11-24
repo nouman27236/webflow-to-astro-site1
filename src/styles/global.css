@@ -39,3 +39,42 @@
 .gradient-wash {
   background-image: linear-gradient(180deg, #fff 0%, var(--tint, #f2f8f8) 50%, #fff 100%);
 }
+
+/* Scroll-triggered entrance animations, matching the source site's own
+   fade-up / slide-in / scale reveal behavior. Elements start hidden/offset
+   and transition to their resting state once .is-visible is added by the
+   observer in src/scripts/scroll-reveal.js */
+[data-animate] {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-animate="fade-up"] {
+  transform: translateY(24px);
+}
+[data-animate="slide-in-left"] {
+  transform: translateX(-32px);
+}
+[data-animate="slide-in-right"] {
+  transform: translateX(32px);
+}
+[data-animate="scale-up"] {
+  transform: scale(0.94);
+}
+[data-animate="scale-down"] {
+  transform: scale(1.04);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
